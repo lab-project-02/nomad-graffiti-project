@@ -1,7 +1,7 @@
 document.addEventListener(
   "DOMContentLoaded",
   () => {
-    console.log("graffiti-finder-project JS imported successfully!");
+    console.log("nomad-graffiti-project JS imported successfully!");
   },
   false
 );
