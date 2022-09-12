@@ -8,6 +8,11 @@ const userSchema = new Schema(
       unique: true
     },
     password: String,
+    role: {
+      type: String,
+      enum: ['user', 'editor'],
+      default: 'user'
+    }
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
