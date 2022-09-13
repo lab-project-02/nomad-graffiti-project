@@ -3,8 +3,14 @@ const uploader = require('../config/cloudinary');
 const Graffiti = require("../models/Graffiti");
 
 /* GET home page */
-router.get("/", (req, res, next) => {
-  res.render("index");
+// router.get("/", (req, res, next) => {
+//   res.render("index");
+// });
+
+router.get('/users/profile', (req, res, next) => {
+  // retrieve the logged in user
+  const loggedInUser = req.user
+  res.render('users/profile', { user: loggedInUser })
 });
 
 /* GET home page with graffiti images */ 
@@ -18,33 +24,10 @@ router.get("/", (req, res, next) => {
     })
 });
 
-router.get('/graffiti/add', (req, res, next) => {
-  res.render('graffiti-add')
-});
-
-router.post('/add', uploader.single('image'), (req, res, next) => {
-  // this is where express / multer adds the info about the uploaded file
-  console.log(req.file)
-  const { title, description } = req.body
-  const imgName = req.file.originalname
-  const imgPath = req.file.path
-  Graffiti.create({ title, description, imgName, imgPath })
-    .then(movie => {
-      console.log(movie)
-      res.redirect('/')
-    })
-    .catch(err => next(err))
-});
-
-// router.get('/movie/delete/:id', (req, res, next) => {
-// });
-
-
-
 
 // route to display profile page
-router.get('/profile', (req, res, next) => {
-  res.render('profile', { username: username })
+router.get('/users/profile', (req, res, next) => {
+  res.render('users/profile', { username: username })
 })
 
 
