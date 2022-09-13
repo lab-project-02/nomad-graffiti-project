@@ -1,4 +1,4 @@
-<h1>Upload Image</h1>
+<h1>UPLOAD IMAGE</h1>
 <form action="/graffiti/add" method="POST" enctype="multipart/form-data">
     <label for="picture">Choose picture:* </label>
     <input type="file" id="image" name="image" accept="image/png, image/jpeg">
@@ -18,6 +18,8 @@
     <label for="location">Location:* </label>
     <input type="text">
     <br>
-    <button type="submit">save and upload image</button>
+    <div id="map" style="width: 60vw; height: 60vh"></div>
+    <br>
+    <button type="submit" id="upload-btn">upload image</button>
 </form>
 
