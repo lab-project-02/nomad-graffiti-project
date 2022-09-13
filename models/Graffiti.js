@@ -4,8 +4,13 @@ const graffitiSchema = new Schema(
   {
     title: String,
     description: String,
+    imageUrl: String,
     imgName: String,
-    imgPath: String
+    imgPath: String,
+    owner: {
+      type: Schema.Types.ObjectId,
+		  ref: 'User'
+    }
   }
 );
 
