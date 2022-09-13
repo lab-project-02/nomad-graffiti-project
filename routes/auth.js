@@ -1,33 +1,37 @@
 const router = require("express").Router();
 const User = require('../models/User')
 const bcrypt = require('bcryptjs');
-const { response, request } = require("express");
 
 router.get('/signup', (req, res, next) => {
     res.render('signup')
 });
 
+router.get('/login', (req, res, next) => {
+    res.render('login')
+});
+
+
 router.post('/signup', (req, res, next) => {
     const { username, password } = req.body
-    // validation
+    // validation, is the password + 4 chars
     if (password.length < 4) {
-        res.render('signup', { message: 'Password has to be min 4 chars' })
+        res.render('signup', { message: 'Your password needs to be min 4 chars' })
         return
     }
     // check if username is not empty
     if (username === '') {
-        res.render('signup', { message: 'Username cannot be empty' })
+        res.render('signup', { message: 'Your username cannot be empty' })
         return
     }
     // validation passed
     // check if the username is already used
     User.findOne({ username: username })
-        .then(usernameFromDB => {
+        .then(userFromDB => {
             if (userFromDB !== null) {
                 res.render('signup', { message: 'Your username is already taken' })
             } else {
                 // we can use that username, hash the password
-                const sale = bcrypt.genSaltSync()
+                const salt = bcrypt.genSaltSync()
                 const hash = bcrypt.hashSync(password, salt)
                 // create the user
                 User.create({ username: username, password: hash})
@@ -42,11 +46,9 @@ router.post('/signup', (req, res, next) => {
 
 });
 
-router.get('/login', (req, res, next) => {
-    res.render('login')
-});
 
 router.post('/login', (req, res, next) => {
+    const { username, password } = req.body
     User.findOne({ username: username })
         .then(userFromDB => {
             if (userFromDB === null) {
@@ -61,13 +63,19 @@ router.post('/login', (req, res, next) => {
                 // req.session is an object provided to us by 'express-session'
                 // this is how we log the user in:
                 req.session.user = userFromDB
-                response.redirect('/profile')
+                res.redirect('/auth/users/profile')
             } else {
                 res.render('login', { message: 'Wrong credentials' })
                 return
             }
         })
 });
+
+router.get('/users/profile', (req, res) => {
+    res.render('users/profile', { userInSession: req.session.user });
+
+  });
+
 
 router.get('/logout', (req, res, next) => {
     // this function is used to log the user out
