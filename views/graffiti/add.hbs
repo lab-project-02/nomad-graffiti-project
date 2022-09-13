@@ -1,21 +1,21 @@
 <h1>UPLOAD IMAGE</h1>
 <form action="/graffiti/add" method="POST" enctype="multipart/form-data">
-    <label for="picture">Choose image: </label>
+    <label for="picture">Choose picture:* </label>
     <input type="file" id="image" name="image" accept="image/png, image/jpeg">
     <br>
-    <label for="">Title: </label>
-    <input type="text" name="title">
-    <br>
-    <label for="">Description: </label>
-    <textarea name="description" id="" cols="30" rows="10"></textarea>
-    <br>
-    <label for="">Photographer: </label>
+    <label for="photographer">Photographer:* </label>
     <input type="text" name="owner">
     <br>
-    <label for="">Hashtags: </label>
+    <label for="tags">Tags:* </label>
     <input type="text" id="hashtags" name="hashtags">
     <br>
-    <label for="">Location: </label>
+    <label for="title">Title:* </label>
+    <input type="text" name="title">
+    <br>
+    <label for="description">Description:* </label>
+    <textarea name="description" id="" cols="30" rows="10"></textarea>
+    <br>
+    <label for="location">Location:* </label>
     <input type="text">
     <br>
     <div id="map" style="width: 60vw; height: 60vh"></div>
