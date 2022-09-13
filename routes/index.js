@@ -24,11 +24,9 @@ router.get("/", (req, res, next) => {
     })
 });
 
-
 // route to display profile page
 router.get('/users/profile', (req, res, next) => {
   res.render('users/profile', { username: username })
 })
-
 
 module.exports = router;

@@ -1,18 +1,23 @@
-<h1>Add art piece</h1>
-<form action="/graffiti" method="POST">
-    <label for="">Photo: </label>
-    <input type="file" name="userFile">
-
-    <label for="">Tags: </label>
-    <input type="text" name="tags">
-    
-    <label for="">Category: </label>
-    <input type="checkbox" name="option1" value="value1">
-    <input type="checkbox" name="option2" value="value2">
-    <input type="checkbox" name="option3" value="value3">
-
+<h1>Upload Image</h1>
+<form action="/graffiti/add" method="POST" enctype="multipart/form-data">
+    <label for="picture">Choose image: </label>
+    <input type="file" id="image" name="image" accept="image/png, image/jpeg">
+    <br>
+    <label for="">Title: </label>
+    <input type="text" name="title">
+    <br>
     <label for="">Description: </label>
     <textarea name="description" id="" cols="30" rows="10"></textarea>
-    
-    <button type="submit">Add art piece</button>
+    <br>
+    <label for="">Photographer: </label>
+    <input type="text" name="owner">
+    <br>
+    <label for="">Hashtags: </label>
+    <input type="text" id="hashtags" name="hashtags">
+    <br>
+    <label for="">Location: </label>
+    <input type="text">
+    <br>
+    <button type="submit">save and upload image</button>
 </form>
+
