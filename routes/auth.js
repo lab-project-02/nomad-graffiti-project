@@ -11,7 +11,6 @@ router.get('/login', (req, res, next) => {
     res.render('login')
 });
 
-
 router.post('/signup', (req, res, next) => {
     const { username, password } = req.body
     // validation, is the password + 4 chars
@@ -72,7 +71,7 @@ router.post('/login', (req, res, next) => {
         })
 });
 
-// GET route to display all the graffitis
+// GET route to display profile with all the graffitis
 router.get('/users/profile', (req, res) => {
     Graffiti.find({owner:req.session.user})
             .then(graffitisFromDB => {

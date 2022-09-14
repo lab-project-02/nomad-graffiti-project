@@ -6,7 +6,6 @@ router.get('/graffiti/add', (req, res, next) => {
     res.render('graffiti/add')
 });
 
-
 router.post('/graffiti/add', uploader.single('image'), (req, res, next) => {
     // this is where express / multer adds the info about the uploaded file
     const { photographer, hashtags, title, description, location } = req.body
