@@ -15,3 +15,11 @@
 </ul>
 </div>
 
+<h1>All the Graffitis</h1>
+{{#each graffitis}}
+	<div>
+		<h2>Name: {{title}}</h2>
+        <img src="{{imageUrl}}" alt="Graffiti for {{title}}"height="200px">
+        <a href="/graffiti/{{_id}}">See details</a>
+	</div>
+{{/each}}

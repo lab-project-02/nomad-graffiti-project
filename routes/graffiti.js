@@ -2,19 +2,9 @@ const router = require("express").Router();
 const uploader = require('../config/cloudinary');
 const Graffiti = require('../models/Graffiti')
 
-router.get('/users/profile', (req, res, next) => {
-	// this only displays the graffitis of the logged in user
-	Graffiti.find({ owner: req.user._id })
-		.then(graffitis => {
-			res.render('users/profile', { graffitis })
-		})
-		.catch(err => next(err))
-});
-
 router.get('/graffiti/add', (req, res, next) => {
     res.render('graffiti/add')
 });
-
 
 router.post('/graffiti/add', uploader.single('image'), (req, res, next) => {
     // this is where express / multer adds the info about the uploaded file
