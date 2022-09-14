@@ -15,16 +15,6 @@ router.get('/graffiti/add', (req, res, next) => {
     res.render('graffiti/add')
 });
 
-router.post('/auth/users/profile', (req, res, next) => {
-	const { title, location } = req.body
-	// create a new graffiti
-	const loggedInUser = req.user._id
-	Graffiti.create({ title, location, post: loggedInUser })
-		.then(() => {
-			res.redirect('/auth/users/profile')
-		})
-		.catch(err => next(err))
-});
 
 router.post('/graffiti/add', uploader.single('image'), (req, res, next) => {
     // this is where express / multer adds the info about the uploaded file
@@ -33,27 +23,12 @@ router.post('/graffiti/add', uploader.single('image'), (req, res, next) => {
     Graffiti.create({ owner: req.session.user, title, description, imgName, imageUrl: req.file.path })
     .then(newlyCreatedGraffitiFromDB => {
       console.log(newlyCreatedGraffitiFromDB);
+	  res.redirect('/auth/users/profile')
     })
-      .then(newGraffiti => {
-        // console.log(newGraffiti)
-        res.redirect('/auth/users/profile')
-      })
-      .catch(err => next(err))
+    .catch(err => next(err))
 });
 
-// // GET route to display all the graffitis
-// router.get('/auth/users/profile', (req, res) => {
-//   Graffiti.find()
-//     .then(graffitisFromDB => {
-//       // console.log(moviesFromDB);
-//     //   res.render('/auth/users/profile', { graffitis: graffitisFromDB });
-// 		res.render("graffiti/graffitis-list", { graffitis: graffitisFromDB })
-//     })
-//     .catch(err => console.log(`Error while getting the graffitis from the DB: ${err}`));
-// });
-
-
-router.get('/auth/users/profile/:id/delete', (req, res, next) => {
+router.get('/users/profile/:id/delete', (req, res, next) => {
 	// if you are an admin you can delete any room
 	// if you are a user you can only delete the rooms
 	// that you have created
