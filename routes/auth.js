@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const User = require('../models/User')
 const bcrypt = require('bcryptjs');
+const Graffiti = require("../models/Graffiti");
 
 router.get('/signup', (req, res, next) => {
     res.render('signup')
@@ -71,11 +72,25 @@ router.post('/login', (req, res, next) => {
         })
 });
 
+// router.get('/users/profile', (req, res) => {
+//     Graffiti.find
+
+
+//     res.render('users/profile', { userInSession: req.session.user, allGraffitis });
+
+//   });
+
+// GET route to display all the graffitis
 router.get('/users/profile', (req, res) => {
-    res.render('users/profile', { userInSession: req.session.user });
-
+    Graffiti.find({owner:req.session.user})
+    
+      .then(graffitisFromDB => {
+        console.log(graffitisFromDB);
+      //   res.render('/auth/users/profile', { graffitis: graffitisFromDB });
+          res.render("users/profile", { userInSession: req.session.user, allGraffitis: graffitisFromDB })
+      })
+      .catch(err => console.log(`Error while getting the graffitis from the DB: ${err}`));
   });
-
 
 router.get('/logout', (req, res, next) => {
     // this function is used to log the user out

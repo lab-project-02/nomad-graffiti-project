@@ -28,11 +28,9 @@ router.post('/auth/users/profile', (req, res, next) => {
 
 router.post('/graffiti/add', uploader.single('image'), (req, res, next) => {
     // this is where express / multer adds the info about the uploaded file
-    // console.log(req.file)
     const { title, description } = req.body
     const imgName = req.file.originalname
-    const imgPath = req.file.path
-    Graffiti.create({ title, description, imgName, imgPath, imageUrl: req.file.path })
+    Graffiti.create({ owner: req.session.user, title, description, imgName, imageUrl: req.file.path })
     .then(newlyCreatedGraffitiFromDB => {
       console.log(newlyCreatedGraffitiFromDB);
     })
@@ -43,15 +41,16 @@ router.post('/graffiti/add', uploader.single('image'), (req, res, next) => {
       .catch(err => next(err))
 });
 
-// GET route to display all the graffitis
-router.get('/auth/users/profile', (req, res) => {
-  Graffiti.find()
-    .then(graffitisFromDB => {
-      // console.log(moviesFromDB);
-      res.render('/auth/users/profile', { graffitis: graffitisFromDB });
-    })
-    .catch(err => console.log(`Error while getting the graffitis from the DB: ${err}`));
-});
+// // GET route to display all the graffitis
+// router.get('/auth/users/profile', (req, res) => {
+//   Graffiti.find()
+//     .then(graffitisFromDB => {
+//       // console.log(moviesFromDB);
+//     //   res.render('/auth/users/profile', { graffitis: graffitisFromDB });
+// 		res.render("graffiti/graffitis-list", { graffitis: graffitisFromDB })
+//     })
+//     .catch(err => console.log(`Error while getting the graffitis from the DB: ${err}`));
+// });
 
 
 router.get('/auth/users/profile/:id/delete', (req, res, next) => {
