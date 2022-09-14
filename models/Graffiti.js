@@ -6,7 +6,6 @@ const graffitiSchema = new Schema(
     description: String,
     imageUrl: String,
     imgName: String,
-    imgPath: String,
     owner: {
       type: Schema.Types.ObjectId,
 		  ref: 'User'
