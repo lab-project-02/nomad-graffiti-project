@@ -83,14 +83,13 @@ router.post('/login', (req, res, next) => {
 // GET route to display all the graffitis
 router.get('/users/profile', (req, res) => {
     Graffiti.find({owner:req.session.user})
-    
       .then(graffitisFromDB => {
         console.log(graffitisFromDB);
-      //   res.render('/auth/users/profile', { graffitis: graffitisFromDB });
           res.render("users/profile", { userInSession: req.session.user, allGraffitis: graffitisFromDB })
       })
       .catch(err => console.log(`Error while getting the graffitis from the DB: ${err}`));
   });
+
 
 router.get('/logout', (req, res, next) => {
     // this function is used to log the user out

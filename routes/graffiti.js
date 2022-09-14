@@ -33,11 +33,8 @@ router.post('/graffiti/add', uploader.single('image'), (req, res, next) => {
     Graffiti.create({ owner: req.session.user, title, description, imgName, imageUrl: req.file.path })
     .then(newlyCreatedGraffitiFromDB => {
       console.log(newlyCreatedGraffitiFromDB);
+	  res.redirect('/auth/users/profile')
     })
-      .then(newGraffiti => {
-        // console.log(newGraffiti)
-        res.redirect('/auth/users/profile')
-      })
       .catch(err => next(err))
 });
 

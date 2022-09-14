@@ -5,28 +5,20 @@
 <a href="/">Back to Home</a><br>
 <br>
 
-<h1>All Graffitis 🚀</h1>
-{{#each graffitis}}
+<h1>All My Graffitis 🚀</h1>
+{{#each allGraffitis}}
 	<h2>{{title}}</h2>
 	<h4>{{description}}</h4>
 	<img src="{{imageUrl}}" alt="Graffiti for {{title}}"height="200px">
 	<h3>Delete this graffiti 
 		<a href="/graffiti/delete/{{_id}}">❌</a>
+		{{!-- <a href="/graffitis/{{_id}}/delete">Delete this graffiti ❌</a> --}}
 	</h3>
 {{else}}
 	<h2>There are no graffitis yet 🙀</h2>
 {{/each}}
 
 <br>
-
-<h1>All the graffitis</h1>
-{{#each graffitis}}
-	<div>
-		<h2>Title: {{title}}</h2>
-		<h2>Location: {{location}}</h2>
-		<a href="/graffities/{{_id}}/delete">Delete this graffiti ❌</a>
-	</div>
-{{/each}}
 
 {{!-- TODO: complete route to log out and return to index.hbs --}}
 <a href="/auth/logout">Log me out</a>
