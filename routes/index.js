@@ -23,7 +23,6 @@ router.get("/", (req, res, next) => {
 // GET route to retrieve and display details of a specific graffiti
 router.get('/graffiti/:graffitiId', (req, res, next) => {
   const { graffitiId } = req.params;
-
   console.log('The ID from the URL is: ', graffitiId);
   Graffiti.findById(graffitiId)
           .populate('owner')
