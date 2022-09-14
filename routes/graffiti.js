@@ -28,15 +28,16 @@ router.post('/graffiti/add', uploader.single('image'), (req, res, next) => {
     .catch(err => next(err))
 });
 
-router.get('/users/profile/:id/delete', (req, res, next) => {
+router.get('/graffiti/:id/delete', (req, res, next) => {
 	// if you are an admin you can delete any room
 	// if you are a user you can only delete the rooms
 	// that you have created
 	const graffitiId = req.params.id
 	const query = { _id: graffitiId }
-	if (req.user.role === 'user') {
+	if (req.session.role === 'user') {
 		query.owner = req.user._id
 	}
+
 	Graffiti.findOneAndDelete(query)
 		.then(() => {
 			res.redirect('/auth/users/profile')
