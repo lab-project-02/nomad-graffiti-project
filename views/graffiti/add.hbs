@@ -1,4 +1,4 @@
-<h1>UPLOAD IMAGE</h1>
+{{!-- <h1>UPLOAD IMAGE</h1>
 
 <a href="/">gallery</a>
 <br>
@@ -30,7 +30,7 @@
     <div id="map" style="width: 80vw; height: 60vh"></div>
     <br>
     <button type="submit" id="upload-btn">upload image</button>
-</form>
+</form> --}}
 
 <!DOCTYPE html><!--  This site was created in Webflow. https://www.webflow.com  -->
 <!--  Last Published: Thu Sep 15 2022 14:09:53 GMT+0000 (Coordinated Universal Time)  -->
@@ -55,7 +55,7 @@
 <body>
   <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-01 w-nav">
     <div class="w-container">
-      <a href="#" class="w-nav-brand"><img src="images/nomad-logo.png" loading="lazy" alt="" class="image"></a>
+      <a href="#" class="w-nav-brand"><img src="/images/nomad-logo.png" loading="lazy" alt="" class="image"></a>
       <nav role="navigation" class="w-nav-menu">
         <a href="/" class="nav-link w-nav-link">Gallery</a>
         <a href="/graffiti/map" class="nav-link w-nav-link">Map</a>
@@ -101,7 +101,9 @@
             </div>
           </div>
           <div class="w-col w-col-6">
+            
             <div class="w-widget w-widget-map" data-widget-style="roadmap" data-widget-latlng="" aria-label="" data-enable-scroll="true" role="region" title="" data-enable-touch="true" data-widget-zoom="12" data-widget-tooltip=""></div>
+          <div id="map" style="width: 80vw; height: 60vh"></div>
           </div>
         </div>
       </div>

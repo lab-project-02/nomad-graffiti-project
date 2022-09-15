@@ -37,7 +37,7 @@
 <body>
   <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-01 w-nav">
     <div class="w-container">
-      <a href="#" class="w-nav-brand"><img src="images/nomad-logo.png" loading="lazy" alt="" class="image"></a>
+      <a href="#" class="w-nav-brand"><img src="/images/nomad-logo.png" loading="lazy" alt="" class="image"></a>
       <nav role="navigation" class="w-nav-menu">
         <a href="/" class="nav-link w-nav-link">Gallery</a>
         <a href="/graffiti/map" class="nav-link w-nav-link">Map</a>
@@ -50,16 +50,16 @@
     </div>
   </div>
   <div class="wf-section">
-    <div class="container w-container">
+    <div class="container w-container container-top">
       <div>
         <h2 class="heading-2">Sign in to your dashboard</h2>
       </div>
       <div>
         <div id="id-login" class="form-block w-form">
-          <form action="/auth/login" id="email-form" name="email-form" data-name="Email Form" method="post" class="form"><input type="text" class="field-nomad w-input" maxlength="256" name="username" data-name="Name" placeholder="username" id="name"><input type="password" class="field-nomad w-input" maxlength="256" name="password" data-name="password" placeholder="******" id="password"><input type="submit" value="Submit" data-wait="Please wait..." class="button-nomad w-button"></form>
-           <p class="p-text-white" style="color:#e9e9e9">Don't have an account? Sign up
+          <form action="/auth/login" id="email-form" name="email-form" data-name="Email Form" method="post" class="form"><input type="text" class="field-nomad w-input" maxlength="256" name="username" data-name="Name" placeholder="username" id="name"><input type="password" class="field-nomad w-input" maxlength="256" name="password" data-name="password" placeholder="******" id="password"><p class="p-text-white" style="color:#e9e9e9">Don't have an account? Sign up
       <a href="/auth/signup">here</a>
-       </p>
+       </p><input type="submit" value="Submit" data-wait="Please wait..." class="button-nomad w-button"></form>
+           
           <div class="w-form-done">
             <div>Thank you! Your submission has been received!</div>
           </div>
