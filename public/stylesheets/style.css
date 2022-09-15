@@ -1,6 +1,10 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #131313;
+  color: #333;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 a {
@@ -31,3 +35,6 @@ a:active {
   text-decoration: underline;
 }
 
+.p-text-white {
+  color: e9e9e9 ;
+}
