@@ -233,6 +233,10 @@ body {
   flex: 0 25%;
 }
 
+.container-top {
+  margin-top: 200px;
+}
+
 .section-2 {
   margin-top: 40px;
 }
