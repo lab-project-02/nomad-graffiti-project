@@ -19,18 +19,9 @@ router.get("/", (req, res, next) => {
             next(error);
           });
 });
-  
-// GET route to retrieve and display details of a specific graffiti
-router.get('/graffiti/:graffitiId', (req, res, next) => {
-  const { graffitiId } = req.params;
-  console.log('The ID from the URL is: ', graffitiId);
-  Graffiti.findById(graffitiId)
-          .populate('owner')
-          .then(theGraffiti => res.render('graffiti/details.hbs', { graffiti: theGraffiti }))
-          .catch(error => {
-            console.log('Error while retrieving graffiti details: ', error);
-            next(error);
-          })  
+
+router.get('/graffiti/map', (req, res, next) => {
+  res.render('graffiti/map')
 });
 
 module.exports = router;

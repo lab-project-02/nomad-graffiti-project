@@ -8,14 +8,27 @@ router.get('/graffiti/add', (req, res, next) => {
 
 router.post('/graffiti/add', uploader.single('image'), (req, res, next) => {
     // this is where express / multer adds the info about the uploaded file
-    const { photographer, hashtags, title, description, location } = req.body
+    const { photographer, title, description, location } = req.body
     const imgName = req.file.originalname
-    Graffiti.create({ owner: req.session.user, photographer, hashtags ,title, description, location, imgName, imageUrl: req.file.path })
+    Graffiti.create({ owner: req.session.user, location, photographer, title, description, imgName, imageUrl: req.file.path })
     .then(newlyCreatedGraffitiFromDB => {
       console.log(newlyCreatedGraffitiFromDB);
 	  res.redirect('/auth/users/profile')
     })
     .catch(err => next(err))
+});
+
+// GET route to retrieve and display details of a specific graffiti
+router.get('/graffiti/:graffitiId', (req, res, next) => {
+	const { graffitiId } = req.params;
+	console.log('The ID from the URL is: ', graffitiId);
+	Graffiti.findById(graffitiId)
+			.populate('owner')
+			.then(theGraffiti => res.render('graffiti/details.hbs', { graffiti: theGraffiti }))
+			.catch(error => {
+			  console.log('Error while retrieving graffiti details: ', error);
+			  next(error);
+			})  
 });
 
 router.get('/graffiti/:id/edit', (req, res, next) => {
@@ -28,13 +41,11 @@ router.get('/graffiti/:id/edit', (req, res, next) => {
 });
 
 router.post('/graffiti/:id/edit', (req, res, next) => {
-	const { photographer, hashtags, title, description, location  } = req.body
+	const { photographer, title, description  } = req.body
 	Graffiti.findByIdAndUpdate(req.params.id, {
 		photographer,
-		hashtags,
 		title,
-		description,
-		location
+		description
 	})
 		.then(() => {
 			res.redirect('/auth/users/profile')
