@@ -4,17 +4,17 @@
     <label for="photographer">Photographer:* </label>
     <input type="text" name="photographer" value="{{graffiti.photographer}}">
     <br>
-    <label for="tags">Tags:* </label>
-    <input type="text" id="hashtags" name="hashtags" value="{{graffiti.hashtags}}">
-    <br>
     <label for="title">Title:* </label>
     <input type="text" name="title" value="{{graffiti.title}}">
     <br>
     <label for="description">Description:* </label>
     <textarea name="description" id="description" cols="30" rows="10" placeholder="{{graffiti.description}}"></textarea>
     <br>
-    <label for="location">Location:* </label>
-     <input type="text" name="location" value="{{graffiti.location}}">
+    <label for="latitude">Latitude: </label>
+    <input type="text" name="latitude" id="latitude" value="{{graffiti.latitude}}">    
+    <br>
+    <label for="longitude">Longitude: </label>
+    <input type="text" name="longitude" id="longitude" value="{{graffiti.latitude}}">
     <br>
     <div id="map" style="width: 60vw; height: 60vh"></div>
     <br>

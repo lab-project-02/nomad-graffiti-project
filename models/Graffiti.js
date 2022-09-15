@@ -4,7 +4,7 @@ const graffitiSchema = new Schema(
   {
     title: String,
     description: String,
-    hashtags: String,
+
     photographer: String,
     imageUrl: String,
     imgName: String,
@@ -12,7 +12,10 @@ const graffitiSchema = new Schema(
       type: Schema.Types.ObjectId,
 		  ref: 'User'
     },
-    location: String,
+    location: {
+      type: { type: String },
+      coordinates: [Number]
+    },
   }
 );
 
