@@ -11,6 +11,7 @@ router.get('/login', (req, res, next) => {
     res.render('login')
 });
 
+
 router.post('/signup', (req, res, next) => {
     const { username, password } = req.body
     // validation, is the password + 4 chars
@@ -36,6 +37,7 @@ router.post('/signup', (req, res, next) => {
                 // create the user
                 User.create({ username: username, password: hash})
                     .then(createdUser => {
+                        console.log(createdUser)
                         res.redirect('/auth/login')
                     })
                     .catch(err => {
@@ -45,7 +47,6 @@ router.post('/signup', (req, res, next) => {
         })
 
 });
-
 
 router.post('/login', (req, res, next) => {
     const { username, password } = req.body
@@ -70,6 +71,7 @@ router.post('/login', (req, res, next) => {
             }
         })
 });
+
 
 // GET route to display profile with all the graffitis
 router.get('/users/profile', (req, res) => {
