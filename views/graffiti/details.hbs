@@ -1,4 +1,4 @@
-<h1>{{graffiti.title}}</h1>
+{{!-- <h1>{{graffiti.title}}</h1>
 <img src="{{graffiti.imageUrl}}" alt="Graffiti for {{graffiti.title}}"height="200px">
 <hr>
 <p>Photo uploaded by: {{graffiti.owner.username}}</p>
@@ -8,7 +8,7 @@
 <br>
 <a href="/auth/login">login</a>
 <br>
-<a href="/auth/users/profile">profile</a>
+<a href="/auth/users/profile">profile</a> --}}
 
 <!DOCTYPE html><!--  This site was created in Webflow. https://www.webflow.com  -->
 <!--  Last Published: Thu Sep 15 2022 14:09:53 GMT+0000 (Coordinated Universal Time)  -->
@@ -33,7 +33,7 @@
 <body>
   <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-01 w-nav">
     <div class="w-container">
-      <a href="#" class="w-nav-brand"><img src="/images/nomad-logo.png" loading="lazy" alt="" class="image"></a>
+      <a href="/" class="w-nav-brand"><img src="/images/nomad-logo.png" loading="lazy" alt="" class="image"></a>
       <nav role="navigation" class="w-nav-menu">
        <a href="/" class="nav-link w-nav-link">Gallery</a>
         <a href="/graffiti/map" class="nav-link w-nav-link">Map</a>
@@ -48,11 +48,11 @@
   <div class="section wf-section">
     <div class="w-container">
       <div class="w-layout-grid grid">
-        <div id="w-node-c74673c3-6e4d-1db9-571b-97112011c0b7-390303b4" class="div-block"><img src="images/dimitar-belchev-fRBpWLAcWIY-unsplash.jpg" loading="lazy" srcset="images/dimitar-belchev-fRBpWLAcWIY-unsplash-p-500.jpg 500w, images/dimitar-belchev-fRBpWLAcWIY-unsplash.jpg 640w" sizes="(max-width: 479px) 96vw, (max-width: 659px) 97vw, 640px" alt="" class="image-details"></div>
+        <div id="w-node-c74673c3-6e4d-1db9-571b-97112011c0b7-390303b4" class="div-block"><img src="{{graffiti.imageUrl}}" alt="Graffiti for {{graffiti.title}}" loading="lazy"  sizes="(max-width: 479px) 96vw, (max-width: 659px) 97vw, 640px" class="image-details"></div>
         <div id="w-node-_4320c446-503b-c24b-922e-cef79d994245-390303b4" class="div-block-2">
-          <h3 class="h-title">This is a title</h3>
-          <div class="caption-01">This is some text inside of a div block.</div>
-          <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+          <h1 class="h-title">{{graffiti.title}}</h1>
+          <div class="caption-01">Photo uploaded by: {{graffiti.owner.username}}</div>
+          <p class="paragraph">{{graffiti.description}}</p>
           <a href="#" class="link">See the location</a>
         </div>
       </div>

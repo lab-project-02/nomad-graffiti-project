@@ -55,7 +55,7 @@
 <body>
   <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-01 w-nav">
     <div class="w-container">
-      <a href="#" class="w-nav-brand"><img src="/images/nomad-logo.png" loading="lazy" alt="" class="image"></a>
+      <a href="/" class="w-nav-brand"><img src="/images/nomad-logo.png" loading="lazy" alt="" class="image"></a>
       <nav role="navigation" class="w-nav-menu">
         <a href="/" class="nav-link w-nav-link">Gallery</a>
         <a href="/graffiti/map" class="nav-link w-nav-link">Map</a>
@@ -78,7 +78,8 @@
             <div class="w-form">
               <form  id="email-form" action="/graffiti/add" method="POST" enctype="multipart/form-data">
                 <label for="image" class="label-nomad">Choose picture:*</label>
-                <input type="file" class="field-nomad w-input" maxlength="256" name="image" accept="image/png, image/jpeg">
+                <input type="file" id="image" name="image" accept="image/png, image/jpeg">
+                {{!-- <input type="file" class="field-nomad w-input" maxlength="256" name="image" accept="image/png, image/jpeg"> --}}
                 <label for="photographer" class="label-nomad">Photographer:* </label>
                 <input type="text" class="field-nomad w-input" maxlength="256" type="text" name="photographer">
                 <label for="title" class="label-nomad">Title:* </label>
@@ -89,7 +90,7 @@
                 <input type="text" class="field-nomad w-input" maxlength="256" name="latitude" data-name="Email 2" placeholder="latitude" id="latitude" value="">
                 <input type="text" class="field-nomad w-input" maxlength="256" name="longitude" data-name="Email 2" placeholder="longitude" id="longitude" value="">
                 <div id="map" style="width: 80vw; height: 60vh"></div>
-                <input type="submit" value="Submit" data-wait="Please wait..." class="button-nomad w-button">
+                <input type="submit" value="submit" data-wait="Please wait..." class="button-nomad w-button">
                 </form>
                 
               <div class="w-form-done">

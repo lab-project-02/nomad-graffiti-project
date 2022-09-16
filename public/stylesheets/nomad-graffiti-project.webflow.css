@@ -12,8 +12,10 @@
 
 body {
   background-color: #131313;
-  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
-  color: #333;
+  /* font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; */
+  /* color: #333; */
+  font-family: 'Exo 2', sans-serif;
+  color: #e9e9e9;
   font-size: 14px;
   line-height: 20px;
 }
@@ -22,6 +24,7 @@ body {
   position: -webkit-sticky;
   position: sticky;
   background-color: hsla(0, 0%, 100%, 0.04);
+  padding: 15px 0;
 }
 
 .image {
@@ -180,6 +183,8 @@ body {
 
 .h-title {
   color: #e9e9e9;
+  padding-bottom: 20px;
+
 }
 
 .label-nomad {
@@ -242,22 +247,22 @@ body {
 }
 
 #w-node-c74673c3-6e4d-1db9-571b-97112011c0b7-390303b4 {
-  -ms-grid-column: span 1;
+  /* -ms-grid-column: span 1; */
   grid-column-start: span 1;
   -ms-grid-column-span: 1;
   grid-column-end: span 1;
-  -ms-grid-row: span 1;
+  /* -ms-grid-row: span 1; */
   grid-row-start: span 1;
   -ms-grid-row-span: 1;
   grid-row-end: span 1;
 }
 
 #w-node-_4320c446-503b-c24b-922e-cef79d994245-390303b4 {
-  -ms-grid-column: span 1;
+  /* -ms-grid-column: span 1; */
   grid-column-start: span 1;
   -ms-grid-column-span: 1;
   grid-column-end: span 1;
-  -ms-grid-row: span 1;
+  /* -ms-grid-row: span 1; */
   grid-row-start: span 1;
   -ms-grid-row-span: 1;
   grid-row-end: span 1;
