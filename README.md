@@ -1,7 +1,7 @@
 
 # Introduction
 
-![Nomad Graffiti landing page] [[https://drive.google.com/file/d/1Lo7eGIFgupOnWpEEQixRAMQszQek0Js1/view?usp=sharing](https://lh3.googleusercontent.com/drive-viewer/AJc5JmQsM41DmThGdzsA8Z7MIYa3GRZnYh0wz_ciV4uw4qVUiMiYky9xcUKtCUZu3RYFVe-O4QFpNh0=w2736-h1494)]
+![Nomad Graffiti landing page](https://lh3.googleusercontent.com/drive-viewer/AJc5JmQsM41DmThGdzsA8Z7MIYa3GRZnYh0wz_ciV4uw4qVUiMiYky9xcUKtCUZu3RYFVe-O4QFpNh0=w2736-h1494)
 
 While living in Berlin, we realized that this city is full of creative arts, especially street art. The graffitis really pops up and look interesting to the eyes. Therefore, we would like to create a platform where people can upload and share with the community graffitis that they found interesting on the internet. 
 
